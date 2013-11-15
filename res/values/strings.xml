@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">The Weekly Race</string>
+    <string name="create_race">Create Race</string>
+    <string name="current_races">Current Races</string>
+    <string name="edit_race">Edit Race</string>
+    <string name="manage_race">Manage Race</string>
+    <string name="race_details">Race Details</string>
+    <string name="search_races">Search for Races</string>
+
+
 </resources>
