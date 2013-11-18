@@ -9,5 +9,17 @@
     <string name="race_details">Race Details</string>
     <string name="search_races">Search for Races</string>
 
+    <!-- Login Screen Strings -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me?</string>
+    <string name="login">Login</string>
+
+    <!-- Your Current Races Strings -->
+    <string name="your_current_races">Your Current Races</string>
+    <string name="search_for_races">Search for Races</string>
+    <string name="create_and_manage_race">Create/Manage Race</string>
+    <string name="sort_by">Sort By</string>
+
 
 </resources>
