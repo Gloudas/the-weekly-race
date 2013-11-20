@@ -3,49 +3,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@drawable/green_gradient_background"
+              android:gravity="center_horizontal">
 
-    <LinearLayout
-        android:id="@+id/currentRaces_header_buttons"
+    <!-- The header that contains the 3 buttons for switching between the main screens -->
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:padding="2dp"
+            >
+        <!-- Note: the FrameLayout is only here to provide a black border for the LinearLayout -->
+        <LinearLayout
+            android:id="@+id/currentRaces_header_buttons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/header_buttons_layout_background"
+            >
+            <Button
+                    android:id="@+id/currentRaces_header1"
+                    android:text="@string/your_current_races"
+                    android:onClick="currentRacesButtonClicked"
+                    style="@style/header_button"
+                    android:background="@color/blue"
+                    android:textColor="@color/white"
+                    />
+            <View
+                    android:layout_width="2dp"
+                    android:layout_height="fill_parent"
+                    android:background="@color/black"
+                    />
+            <Button
+                    android:id="@+id/currentRaces_header2"
+                    android:text="@string/search_for_races"
+                    android:onClick="searchForRacesButtonClicked"
+                    style="@style/header_button"
+                    />
+            <View
+                    android:layout_width="2dp"
+                    android:layout_height="fill_parent"
+                    android:background="@color/black"
+                    />
+            <Button
+                    android:id="@+id/currentRaces_header3"
+                    android:text="@string/create_and_manage_race"
+                    android:onClick="createManageRaceButtonClicked"
+                    style="@style/header_button"
+                    />
+        </LinearLayout>
+    </FrameLayout>
+
+    <View
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <Button
-                android:id="@+id/currentRaces_header1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/your_current_races"
-                android:onClick="currentRacesButtonClicked"
-                />
-        <Button
-                android:id="@+id/currentRaces_header2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/search_for_races"
-                android:onClick="searchForRacesButtonClicked"
-                />
-        <Button
-                android:id="@+id/currentRaces_header3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/create_and_manage_race"
-                android:onClick="createManageRaceButtonClicked"
-                />
-    </LinearLayout>
+        android:layout_height="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/current_races" />
+        android:text="@string/your_current_races"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
 
+    <!-- Stores and displays all of the "current race" view -->
+    <ListView
+        android:id="@+id/current_races_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        />
 
     <TextView
+            android:id="@+id/current_races_empty_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TODO fill this out" />
+            android:textSize="13dp"
+            android:text="@string/current_races_empty"
+            android:textColor="@color/black"
+            />
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sort by:"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:layout_marginRight="4dp"/>
+
+        <Spinner
+            android:id="@+id/currentRaces_sort_by_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -57,9 +57,7 @@
         android:text="@string/login"
         style="@style/green_button"
         android:layout_marginTop="50dp"
-
         />
-
 
 </LinearLayout>
 

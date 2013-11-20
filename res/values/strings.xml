@@ -20,6 +20,23 @@
     <string name="search_for_races">Search for Races</string>
     <string name="create_and_manage_race">Create/Manage Race</string>
     <string name="sort_by">Sort By</string>
+    <string-array name="sort_by_options">
+        <item>Title</item>
+        <item>Start Date</item>
+        <item>End Date</item>
+        <item>Your Score</item>
+    </string-array>
+    <string name="current_races_empty">You are not participating in any races yet!</string>
+
+    <!-- Search Races Strings -->
+
+    <!-- Create/Manage Races String -->
+    <string name="create_new_race">Create New Weekly Race</string>
+    <string name="edit_current_race">Edit Your Weekly Race</string>
+    <string name="pending_updates">Pending Customer Updates:</string>
+    <string name="pending_updates_empty">
+        You are not currently running a race! \n
+        Create a new race to begin receiving updates.</string>
 
 
 </resources>
