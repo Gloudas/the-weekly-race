@@ -41,7 +41,7 @@
     <string name="race_title_hint">Race title...</string>
     <string name="race_details_hint">Race details...</string>
     <string name="selectdate">Select date</string>
-    <string name="race_date_hint">(mm/dd/yyyy)</string>
+    <string name="race_date_hint">mm/dd/yyyy</string>
     <string name="race_points_hint">Enter points won per item...</string>
     <string name="race_prizes_hint">Enter prizes for winners...</string>
     <string name="race_winners_hint">Enter number of race winners...</string>

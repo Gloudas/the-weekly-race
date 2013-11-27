@@ -161,9 +161,6 @@
 	            android:inputType="number" >
 			</EditText>
 	        
-        
-    
-
     	<Button
         	android:id="@+id/button_create_race"
         	android:layout_width="match_parent"
