@@ -31,12 +31,20 @@
     <!-- Search Races Strings -->
 
     <!-- Create/Manage Races String -->
-    <string name="create_new_race">Create New Weekly Race</string>
+    <string name="create_new_race">Create New Race</string>
     <string name="edit_current_race">Edit Your Weekly Race</string>
     <string name="pending_updates">Pending Customer Updates:</string>
     <string name="pending_updates_empty">
         You are not currently running a race! \n
         Create a new race to begin receiving updates.</string>
+    <string name="enter_new_race_details">Enter new race details:</string>
+    <string name="race_title_hint">Race title...</string>
+    <string name="race_details_hint">Race details...</string>
+    <string name="selectdate">Select date</string>
+    <string name="race_date_hint">Enter start date (mm/dd/yyyy)</string>
+    <string name="race_points_hint">Enter points won per item...</string>
+    <string name="race_prizes_hint">Enter prizes for winners...</string>
+    <string name="race_winners_hint">Enter number of race winners...</string>
 
 
 </resources>
