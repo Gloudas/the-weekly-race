@@ -9,17 +9,19 @@ import java.util.Date;
 public class Race {
 
     private String mTitle;
+    private String mLocation;
     private String mDetails;
     private Calendar mStartDate;
-    private int mPoints;
+    private Calendar mEndDate;
     private String mPrize;
     private int mNumWinners;
 
-    public Race(String title, String details, Calendar date, int points, String prize, int numWinners) {
+    public Race(String title, String location, String details, Calendar startDate, Calendar endDate, String prize, int numWinners) {
         mTitle = title;
+        mLocation = location;
         mDetails = details;
-        mStartDate = date;
-        mPoints = points;
+        mStartDate = startDate;
+        mEndDate = endDate;
         mPrize = prize;
         mNumWinners = numWinners;
     }
@@ -27,6 +29,10 @@ public class Race {
     public String getTitle()
     {
     	return mTitle;
+    }
+    public String getLocation()
+    {
+    	return mLocation;
     }
     public String getDetails()
     {
@@ -36,10 +42,6 @@ public class Race {
     {
     	return mPrize;
     }
-    public int getPoints()
-    {
-    	return mPoints;
-    }
     public int getNumWinners()
     {
     	return mNumWinners;
@@ -48,10 +50,17 @@ public class Race {
     {
     	return mStartDate;
     }
-    
+    public Calendar getEndDate()
+    {
+    	return mEndDate;
+    }
     public void setTitle(String newTitle)
     {
     	mTitle = newTitle;
+    }
+    public void setLocation(String newLocation)
+    {
+    	mTitle = newLocation;
     }
     public void setDetails(String newDetails)
     {
@@ -61,10 +70,6 @@ public class Race {
     {
     	mPrize = newPrize;
     }
-    public void setPoints(int newPoints)
-    {
-    	mPoints = newPoints;
-    }
     public void setNumWinners(int newNumWinners)
     {
     	mNumWinners = newNumWinners;
@@ -72,5 +77,9 @@ public class Race {
     public void setStartDate(Calendar newStartDate)
     {
     	mStartDate = newStartDate;
+    }
+    public void setEndDate(Calendar newEndDate)
+    {
+    	mEndDate = newEndDate;
     }
 }

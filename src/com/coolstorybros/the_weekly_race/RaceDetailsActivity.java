@@ -13,22 +13,22 @@ public class RaceDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race_details);
         
+        Race mRace = ManageRaceActivity.getRace(); 
+        
         TextView raceTitle = (TextView) findViewById(R.id.raceTitle);
-        raceTitle.setText(ManageRaceActivity.mRace.getTitle());
+        raceTitle.setText(mRace.getTitle());
         
         TextView remainingTime = (TextView) findViewById(R.id.remainingTime);
-        remainingTime.setText("End date: ");
+        remainingTime.setText("End date: " + ((Integer)mRace.getEndDate().MONTH).toString() + "/" + ((Integer)mRace.getEndDate().DAY_OF_MONTH).toString() + "/" + ((Integer)mRace.getEndDate().YEAR).toString());
         
         TextView raceDetails = (TextView) findViewById(R.id.raceDetails);
-        raceDetails.setText(ManageRaceActivity.mRace.getDetails());
+        raceDetails.setText(mRace.getDetails());
         
         TextView racePrize = (TextView) findViewById(R.id.prize);
-        racePrize.setText(ManageRaceActivity.mRace.getPrize());
+        racePrize.setText(mRace.getPrize());
         
         TextView location = (TextView) findViewById(R.id.location);
-        location.setText("dummy location");
-        
-        
+        location.setText(mRace.getLocation());
     }
     
     @Override

@@ -5,91 +5,168 @@
 			  android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@drawable/green_gradient_background"
               android:gravity="center_horizontal">
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="15dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_height="wrap_content"
-        android:text="@string/create_new_race"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:padding="2dp" 
-        >
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+		android:background="@drawable/green_gradient_background">
+    	<View
+        	android:layout_width="fill_parent"
+        	android:layout_height="15dp" />
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/create_new_race"
+        	android:textColor="@color/black"
+        	android:textSize="40dp"
+        	android:textStyle="bold" />
+	</LinearLayout>
+	
         <LinearLayout
             android:id="@+id/createRaces_form_list"
             android:layout_width="fill_parent"
+   		    android:padding="10dp"
+        	android:background="@drawable/grey_gradient_background"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+            <TextView 
+                android:text="Race Name:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 	        <EditText  
 			    android:id="@+id/EditTextRaceTitle"  
 			    android:layout_height="wrap_content"  
-			    android:hint="@string/race_title_hint"
 			    android:inputType="textPersonName"  
-			    android:layout_width="fill_parent">  
-			</EditText>
+			    android:layout_width="fill_parent"/>
+			<View
+        		android:layout_width="fill_parent"
+        		android:layout_height="15dp" />
 			
+			<TextView 
+                android:text="Race Location:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+	        <EditText  
+			    android:id="@+id/EditTextRaceLocation"  
+			    android:layout_height="wrap_content"  
+			    android:inputType="textPersonName"  
+			    android:hint="Name of Business and Address"
+			    android:layout_width="fill_parent"/>
+			<View
+        		android:layout_width="fill_parent"
+        		android:layout_height="15dp" />
+			
+			<TextView 
+                android:text="Race Description:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+	        
 	        <EditText  
 			    android:id="@+id/EditTextRaceDetails" 
 			    android:gravity="top" 
 			    android:layout_height="wrap_content"  
-			    android:hint="@string/race_details_hint"  
 			    android:inputType="textMultiLine"  
-			    android:lines="5"  
-			    android:layout_width="fill_parent">
-			</EditText>
+			    android:lines="4"  
+			    android:layout_width="fill_parent"/>
+	        
+	        <View
+        		android:layout_width="fill_parent"
+        		android:layout_height="15dp" />
+			
+			<TextView 
+                android:text="Race Start Date:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 	        
 	        <EditText  
-			    android:id="@+id/EditTextRaceDate"
+			    android:id="@+id/EditTextRaceStartDate"
 			    android:layout_height="wrap_content"  
 			    android:hint="@string/race_date_hint" 
 			    android:inputType="text" 
-			    android:layout_width="fill_parent">
-			</EditText>
+			    android:layout_width="fill_parent"/>
 	        
-	        <EditText
-	            android:id="@+id/EditTextRacePoints"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:hint="@string/race_points_hint"
-	            android:inputType="number" >
-			</EditText>
+	         <View
+        		android:layout_width="fill_parent"
+        		android:layout_height="15dp" />
+			
+			<TextView 
+                android:text="Race End Date:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 	        
-	        <EditText
-	            android:id="@+id/EditTextRacePrizes"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:hint="@string/race_prizes_hint"
-	            android:inputType="text" >
-			</EditText>
+	        <EditText  
+			    android:id="@+id/EditTextRaceEndDate"
+			    android:layout_height="wrap_content"  
+			    android:hint="@string/race_date_hint" 
+			    android:inputType="text" 
+			    android:layout_width="fill_parent"/>
+
+ 			<View
+        		android:layout_width="fill_parent"
+        		android:layout_height="15dp" />
+			
+			<TextView 
+                android:text="Prizes to be Won:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 	        
-	        <EditText
+			<EditText  
+			    android:id="@+id/EditTextRacePrizes" 
+			    android:gravity="top" 
+			    android:layout_height="wrap_content"  
+			    android:inputType="textMultiLine"  
+			    android:lines="2"  
+			    android:layout_width="fill_parent"/>
+	        
+	       <View
+        		android:layout_width="fill_parent"
+        		android:layout_height="15dp" />
+			
+			<TextView 
+                android:text="Number of Winners:"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+	        
+			<EditText
 	            android:id="@+id/EditTextRaceWinners"
 	            android:layout_width="fill_parent"
 	            android:layout_height="wrap_content"
-	            android:hint="@string/race_winners_hint"
 	            android:inputType="number" >
 			</EditText>
 	        
-        </LinearLayout>
-    </FrameLayout>
+        
+    
 
-    <Button
-        android:id="@+id/button_create_race"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textSize="20sp"
-        android:onClick="createRaceButtonClicked"
-        android:text="Create this race!" />
-
+    	<Button
+        	android:id="@+id/button_create_race"
+        	android:layout_width="match_parent"
+        	android:layout_height="60dp"
+        	android:textSize="20sp"
+        	android:onClick="createRaceButtonClicked"
+        	android:text="Create this race!!" 
+        	android:background="@drawable/green_gradient_background"/>
+	</LinearLayout>
 </LinearLayout>

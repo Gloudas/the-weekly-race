@@ -27,31 +27,42 @@ public class CreateRaceActivity extends Activity {
     public void createRaceButtonClicked(View v) {
     	final EditText titleField = (EditText) findViewById(R.id.EditTextRaceTitle);  
     	String title = titleField.getText().toString();
-    	
+
+    	final EditText locationField = (EditText) findViewById(R.id.EditTextRaceLocation);  
+    	String location = locationField.getText().toString();  
+
     	final EditText detailsField = (EditText) findViewById(R.id.EditTextRaceDetails);  
     	String details = detailsField.getText().toString();  
     	
-    	final EditText dateField = (EditText) findViewById(R.id.EditTextRaceDate);  
-    	String datestring = dateField.getText().toString();
-    	String[] datevals = datestring.split("[/]");
-    	int month = Integer.parseInt(datevals[0]) - 1; //January is 0
-    	int day = Integer.parseInt(datevals[1]);
-    	int year = Integer.parseInt(datevals[2]);
+    	final EditText startDateField = (EditText) findViewById(R.id.EditTextRaceStartDate);  
+    	String startdatestring = startDateField.getText().toString();
+    	String[] startdatevals = startdatestring.split("[/]");
+    	int startmonth = Integer.parseInt(startdatevals[0]) - 1; //January is 0
+    	int startday = Integer.parseInt(startdatevals[1]);
+    	int startyear = Integer.parseInt(startdatevals[2]);
     	
-    	final EditText pointsField = (EditText) findViewById(R.id.EditTextRacePoints);  
-    	int points = Integer.parseInt(pointsField.getText().toString());
+    	final EditText endDateField = (EditText) findViewById(R.id.EditTextRaceEndDate);  
+    	String enddatestring = endDateField.getText().toString();
+    	String[] enddatevals = enddatestring.split("[/]");
+    	int endmonth = Integer.parseInt(enddatevals[0]) - 1; //January is 0
+    	int endday = Integer.parseInt(enddatevals[1]);
+    	int endyear = Integer.parseInt(enddatevals[2]);
     	
+
     	final EditText prizeField = (EditText) findViewById(R.id.EditTextRacePrizes);  
     	String prize = prizeField.getText().toString();
     	
     	final EditText winnersField = (EditText) findViewById(R.id.EditTextRaceWinners);  
     	int winners = Integer.parseInt(winnersField.getText().toString());
 
-    	Calendar date = Calendar.getInstance();
-    	date.set(year, month, day);
+    	Calendar startdate = Calendar.getInstance();
+    	startdate.set(startyear, startmonth, startday);
     	
-    	Race newRace = new Race(title, details, date, points, prize, winners);
-    	ManageRaceActivity.mRace = newRace;
+    	Calendar enddate = Calendar.getInstance();
+    	enddate.set(endyear, endmonth, endday);
+    	
+    	Race newRace = new Race(title, location, details, startdate, enddate, prize, winners);
+    	ManageRaceActivity.setRace(newRace);
     	
     	Intent intent = new Intent(this, RaceDetailsActivity.class);
         startActivity(intent);

@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ManageRaceActivity extends Activity {
 
     // for the prototype, just have a static Race variable that the user "creates"
-    public static Race mRace = null;
+    private static Race mRace = null;
 
     Button mCreateRaceButton;
     Button mEditRaceButton;
@@ -32,6 +33,8 @@ public class ManageRaceActivity extends Activity {
         if (mRace != null) {
             mCreateRaceButton.setVisibility(View.GONE);
             mEditRaceButton.setVisibility(View.VISIBLE);
+            TextView noCurrentRace = (TextView) findViewById(R.id.current_races_empty_text);
+            noCurrentRace.setVisibility(View.GONE);
         } else {
             mCreateRaceButton.setVisibility(View.VISIBLE);
             mEditRaceButton.setVisibility(View.GONE);
@@ -42,8 +45,12 @@ public class ManageRaceActivity extends Activity {
      * Called when the user creates a new race
      * @param r The newly created race (as defined by the "Create Race" screen)
      */
-    public void setRace(Race r) {
+    public static void setRace(Race r) {
         mRace = r;
+    }
+    
+    public static Race getRace(){
+    	return mRace;
     }
 
     public void createRaceButtonClicked(View v) {
