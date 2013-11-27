@@ -23,7 +23,11 @@
         	android:textSize="40dp"
         	android:textStyle="bold" />
 	</LinearLayout>
-	
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
         <LinearLayout
             android:id="@+id/createRaces_form_list"
             android:layout_width="fill_parent"
@@ -168,5 +172,6 @@
         	android:onClick="createRaceButtonClicked"
         	android:text="Create this race!!" 
         	android:background="@drawable/green_gradient_background"/>
-	</LinearLayout>
+	    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
