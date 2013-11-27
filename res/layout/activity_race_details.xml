@@ -1,16 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:gravity="center_horizontal"
+		android:background="@drawable/green_gradient_background">
+	    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="5dp"></LinearLayout>
+	    
+	    <TextView
+	        android:id="@+id/raceTitle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Race Title"
+	        android:textSize="40dp"
+	        android:textStyle="bold" />
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TODO - fill out race details screen"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:layout_gravity="center"/>
+		<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="5dp"></LinearLayout>
+	    	    
+	    <TextView
+	        android:id="@+id/remainingTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Remaining Time"
+	        android:textSize="30dp"/>
+	    
+	    
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="6"
+	    android:gravity="center_horizontal"
+		android:background="@drawable/grey_gradient_background">
 
+		<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="15dp"></LinearLayout>
+	    	    
+	    <TextView
+	        android:id="@+id/raceDetailsTitle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Race Details"
+	        android:textStyle="bold"
+	        android:textSize="30dp"/>
+	    	    
+	    <TextView
+	        android:id="@+id/raceDetails"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Race Details Text"
+	        android:textSize="25dp"/>
+	    
+		<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="15dp"></LinearLayout>
+	    	    
+	    <TextView
+	        android:id="@+id/prizeTitle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Prize"
+	        android:textStyle="bold"
+	        android:textSize="30dp"/>
+	    	    
+	    <TextView
+	        android:id="@+id/prize"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Prize Text"
+	        android:textSize="25dp"/>
+	    
+		<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="15dp"></LinearLayout>
+	    	    
+	    <TextView
+	        android:id="@+id/locationTitle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Location"
+	        android:textStyle="bold"
+	        android:textSize="30dp"/>
+	    	    
+	    <TextView
+	        android:id="@+id/location"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Location Text"
+	        android:textSize="25dp"/>
+	    
+	</LinearLayout>
+   
 </LinearLayout>

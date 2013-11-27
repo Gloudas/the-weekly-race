@@ -9,7 +9,7 @@ import android.widget.Button;
 public class ManageRaceActivity extends Activity {
 
     // for the prototype, just have a static Race variable that the user "creates"
-    private static Race mRace = null;
+    public static Race mRace = null;
 
     Button mCreateRaceButton;
     Button mEditRaceButton;

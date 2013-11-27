@@ -51,8 +51,9 @@ public class CreateRaceActivity extends Activity {
     	date.set(year, month, day);
     	
     	Race newRace = new Race(title, details, date, points, prize, winners);
-
-    	Intent intent = new Intent(this, ManageRaceActivity.class);
+    	ManageRaceActivity.mRace = newRace;
+    	
+    	Intent intent = new Intent(this, RaceDetailsActivity.class);
         startActivity(intent);
     }
 }
