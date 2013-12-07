@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import com.coolstorybros.the_weekly_race.data.DatabaseManager;
+import com.coolstorybros.the_weekly_race.data.Race;
 
 public class CreateRaceActivity extends Activity {
 	
@@ -142,6 +144,10 @@ public class CreateRaceActivity extends Activity {
     		
     		Race newRace = new Race(title, location, details, startdate, enddate, prize, winners);
     		ManageRaceActivity.setRace(newRace);
+
+            // Insert the newly created race into the database - this will set newRace's ID variable
+            DatabaseManager dbManager = new DatabaseManager(this);
+            dbManager.insertNewRace(newRace);
     	
     		Intent intent = new Intent(this, RaceDetailsActivity.class);
     		startActivity(intent);

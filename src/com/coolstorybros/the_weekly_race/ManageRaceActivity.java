@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.coolstorybros.the_weekly_race.data.Race;
 
 public class ManageRaceActivity extends Activity {
 

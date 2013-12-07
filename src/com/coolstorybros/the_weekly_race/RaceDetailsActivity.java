@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.TextView;
+import com.coolstorybros.the_weekly_race.data.Race;
 
 public class RaceDetailsActivity extends Activity {
 
@@ -13,7 +14,7 @@ public class RaceDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race_details);
         
-        Race mRace = ManageRaceActivity.getRace(); 
+        Race mRace = ManageRaceActivity.getRace();
         
         TextView raceTitle = (TextView) findViewById(R.id.raceTitle);
         raceTitle.setText(mRace.getTitle());

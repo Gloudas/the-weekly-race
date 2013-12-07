@@ -55,6 +55,24 @@
         </LinearLayout>
     </FrameLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="insert new race"
+        android:onClick="insertNewRaceClicked"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get race"
+            android:onClick="getRaceClicked"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="update race"
+            android:onClick="updateRaceClicked"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

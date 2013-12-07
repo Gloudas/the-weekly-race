@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import com.coolstorybros.the_weekly_race.data.Race;
 
 import java.util.ArrayList;
 
