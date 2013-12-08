@@ -11,6 +11,9 @@ import com.coolstorybros.the_weekly_race.WeeklyRaceApplication;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Defines database schemas and provides implementation of all database methods
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     static final String dbName = "weeklyraceDB";
@@ -202,13 +205,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newUser.setId((int) newRowId);
     }
 
-    /**
-     *
-     * @param raceId
-     * @param userId
-     * @param username
-     * @param scoreUpdate The change that is being made to the user's score. E.g, if the user just scored 2 points from a purchase, scoreUpdate would be 2
-     */
     public void updateUserScore(int raceId, int userId, String username, int scoreUpdate) {
 
         UserScore userScore = new UserScore();
@@ -313,6 +309,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         updateUserScore(newRace2.getId(), newUser2.getId(), newUser2.getUsername(), 2);
         ArrayList<Race> dbTest5 = getRacesByUser(newUser2.getId()); // test that getRacesByUser() works
         ArrayList<Race> dbTest6 = getAllRaces(); // test that getAllRaces() works
+        newRace1.setDetails("updated race details1");
+        updateRace(newRace1);
+        Race dbTest7 = getRace(newRace1.getId()); // test that race was correctly updated in the DB
     }
 
     /* Defines the contents of the Races table */

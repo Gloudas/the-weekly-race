@@ -6,13 +6,12 @@ import com.coolstorybros.the_weekly_race.data.User;
 
 /**
  * Used to access a static context
+ * Based on this stack overflow: http://stackoverflow.com/questions/2002288/static-way-to-get-context-on-android
  */
 public class WeeklyRaceApplication extends Application {
 
     private static Context sContext;
     private static User sCurrentUser;
-
-    public static boolean databaseCreated = true;
 
     public void onCreate() {
         super.onCreate();

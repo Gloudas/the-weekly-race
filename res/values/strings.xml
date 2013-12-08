@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="xml_app_name">com.coolstorybros.WeeklyRaceApplication</string>
     <string name="app_name">The Weekly Race</string>
     <string name="create_race">Create Race</string>
     <string name="current_races">Current Races</string>
