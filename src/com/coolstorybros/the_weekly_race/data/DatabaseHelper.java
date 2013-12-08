@@ -13,6 +13,10 @@ import java.util.Calendar;
 
 /**
  * Defines database schemas and provides implementation of all database methods
+ *
+ * Written with help from these sources:
+ * http://developer.android.com/training/basics/data-storage/databases.html
+ * http://www.codeproject.com/Articles/119293/Using-SQLite-Database-with-Android
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
