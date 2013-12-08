@@ -4,7 +4,10 @@
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-    <application android:name="com.coolstorybros.WeeklyRaceApplication" android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+    <application
+            android:name="com.coolstorybros.the_weekly_race.WeeklyRaceApplication"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher">
 
         <activity android:name="LoginActivity"
                   android:label="@string/app_name"
