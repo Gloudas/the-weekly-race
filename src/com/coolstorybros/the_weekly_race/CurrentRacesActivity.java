@@ -1,29 +1,40 @@
 package com.coolstorybros.the_weekly_race;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.*;
+import com.coolstorybros.the_weekly_race.data.Race;
 
-public class CurrentRacesActivity extends FragmentActivity implements AdapterView.OnItemSelectedListener {
+import java.util.ArrayList;
 
-	 private ViewPager viewPager;
-	 private CurrentRacesPagerAdapter mAdapter;
-	 
-	
+public class CurrentRacesActivity extends Activity implements AdapterView.OnItemSelectedListener {
+
+    Spinner mSortBySpinner;
+    TextView mCurrentRacesEmptyText;
+    ListView mCurrentRacesList;
+
+    // The list of race objects that we populate from the database and then display on screen
+    ArrayList<Race> mRaces;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_races);
 
-        viewPager = (ViewPager)findViewById(R.id.view_pager);
-        mAdapter = new CurrentRacesPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(mAdapter);
+        mCurrentRacesList = (ListView) findViewById(R.id.current_races_list);
+        mCurrentRacesEmptyText = (TextView) findViewById(R.id.current_races_empty_text);
+        mCurrentRacesList.setEmptyView(mCurrentRacesEmptyText);
+        // TODO - create an adapter that populates this list with appropriate views for each current race
 
+        // Setup the "Sort By" spinner button
+        mSortBySpinner = (Spinner) findViewById(R.id.currentRaces_sort_by_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sort_by_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSortBySpinner.setAdapter(adapter);
     }
-    
 
     /**
      * Method where we update all View values, including the list of displayed Races

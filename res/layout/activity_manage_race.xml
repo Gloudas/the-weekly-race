@@ -55,309 +55,36 @@
         </LinearLayout>
     </FrameLayout>
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:id="@+id/createRaces_form_list" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-   		    android:padding="10dp"
-        	android:background="@drawable/grey_gradient_background"
+    <Button
+            android:id="@+id/button_create_new_race"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView 
-                android:text="Race Name:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        <EditText  
-			    android:id="@+id/EditTextRaceTitle"  
-			    android:layout_height="wrap_content"  
-			    android:inputType="textPersonName"  
-			    android:layout_width="fill_parent"/>
-			<View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race Location:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        <EditText  
-			    android:id="@+id/EditTextRaceLocation"  
-			    android:layout_height="wrap_content"  
-			    android:inputType="textPersonName"  
-			    android:hint="Name of Business and Address"
-			    android:layout_width="fill_parent"/>
-			<View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race Description:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-	        <EditText  
-			    android:id="@+id/EditTextRaceDetails" 
-			    android:gravity="top" 
-			    android:layout_height="wrap_content"  
-			    android:inputType="textMultiLine"  
-			    android:lines="4"  
-			    android:layout_width="fill_parent"/>
-	        
-	        <View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race Start Date:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-	        <EditText  
-			    android:id="@+id/EditTextRaceStartDate"
-			    android:layout_height="wrap_content"  
-			    android:hint="@string/race_date_hint" 
-			    android:inputType="text" 
-			    android:layout_width="fill_parent"/>
-	        
-	         <View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race End Date:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-	        <EditText  
-			    android:id="@+id/EditTextRaceEndDate"
-			    android:layout_height="wrap_content"  
-			    android:hint="@string/race_date_hint" 
-			    android:inputType="text" 
-			    android:layout_width="fill_parent"/>
+            android:text="@string/create_new_race"
+            android:layout_margin="20dp"
+            style="@style/green_button"
+            android:visibility="visible"
+            android:onClick="createRaceButtonClicked"
+            />
 
- 			<View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Prizes to be Won:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-			<EditText  
-			    android:id="@+id/EditTextRacePrizes" 
-			    android:gravity="top" 
-			    android:layout_height="wrap_content"  
-			    android:inputType="textMultiLine"  
-			    android:lines="2"  
-			    android:layout_width="fill_parent"/>
-	        
-	       <View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Number of Winners:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-			<EditText
-	            android:id="@+id/EditTextRaceWinners"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:inputType="number" >
-			</EditText>
-	        
-    	<Button
-        	android:id="@+id/button_create_race"
-        	android:layout_width="match_parent"
-        	android:layout_height="60dp"
-        	android:textSize="20sp"
-        	android:onClick="createRaceButtonClicked"
-        	android:text="Create this race!!" 
-        	android:background="@drawable/green_gradient_background"/>
-	    </LinearLayout>
-    </ScrollView>
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:id="@+id/editRaces_form_list" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-   		    android:padding="10dp"
-        	android:background="@drawable/grey_gradient_background"
+    <!-- Button is invisible unless race is already created -->
+    <Button
+            android:id="@+id/button_edit_weekly_race"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView 
-                android:text="Race Name:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        <EditText  
-			    android:id="@+id/EditTextRaceTitle_e"  
-			    android:layout_height="wrap_content"  
-			    android:inputType="textPersonName"  
-			    android:layout_width="fill_parent"/>
-			<View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race Location:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        <EditText  
-			    android:id="@+id/EditTextRaceLocation_e"  
-			    android:layout_height="wrap_content"  
-			    android:inputType="textPersonName"  
-			    android:hint="Name of Business and Address"
-			    android:layout_width="fill_parent"/>
-			<View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race Description:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-	        <EditText  
-			    android:id="@+id/EditTextRaceDetails_e" 
-			    android:gravity="top" 
-			    android:layout_height="wrap_content"  
-			    android:inputType="textMultiLine"  
-			    android:lines="4"  
-			    android:layout_width="fill_parent"/>
-	        
-	        <View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race Start Date:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-	        <EditText  
-			    android:id="@+id/EditTextRaceStartDate_e"
-			    android:layout_height="wrap_content"  
-			    android:hint="@string/race_date_hint" 
-			    android:inputType="text" 
-			    android:layout_width="fill_parent"/>
-	        
-	         <View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Race End Date:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-	        <EditText  
-			    android:id="@+id/EditTextRaceEndDate_e"
-			    android:layout_height="wrap_content"  
-			    android:hint="@string/race_date_hint" 
-			    android:inputType="text" 
-			    android:layout_width="fill_parent"/>
+            android:text="@string/edit_current_race"
+            android:layout_margin="20dp"
+            style="@style/green_button"
+            android:visibility="gone"
+            android:onClick="editRaceButtonClicked"
+            />
 
- 			<View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Prizes to be Won:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-			<EditText  
-			    android:id="@+id/EditTextRacePrizes_e" 
-			    android:gravity="top" 
-			    android:layout_height="wrap_content"  
-			    android:inputType="textMultiLine"  
-			    android:lines="2"  
-			    android:layout_width="fill_parent"/>
-	        
-	       <View
-        		android:layout_width="fill_parent"
-        		android:layout_height="15dp" />
-			
-			<TextView 
-                android:text="Number of Winners:"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
-	        
-			<EditText
-	            android:id="@+id/EditTextRaceWinners_e"
-	            android:layout_width="fill_parent"
-	            android:layout_height="wrap_content"
-	            android:inputType="number" >
-			</EditText>
-	        
-    	<Button
-        	android:id="@+id/button_edit_race"
-        	android:layout_width="match_parent"
-        	android:layout_height="60dp"
-        	android:textSize="20sp"
-        	android:onClick="editRaceButtonClicked"
-        	android:text="Edit this race!!" 
-        	android:background="@drawable/green_gradient_background"/>
-	    </LinearLayout>
-    </ScrollView>
-    
     <View
         android:layout_width="fill_parent"
         android:layout_height="3dp"
         android:background="@color/black"
         />
 
-    <!-- LEADERBOARD SECTION -->
+    <!-- PENDING CUSTOMER UPDATES SECTION -->
 
     <TextView
             android:layout_width="wrap_content"
