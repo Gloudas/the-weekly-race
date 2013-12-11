@@ -143,7 +143,7 @@ public class CreateRaceActivity extends Activity {
     		enddate.set(endyear, endmonth, endday);
     		
     		Race newRace = new Race(title, location, details, startdate, enddate, prize, winners);
-    		ManageRaceActivity.setRace(newRace);
+    		//ManageRaceActivity.setRace(newRace);
 
             // Insert the newly created race into the database - this will set newRace's ID variable
             // order is important here - need the race to be inserted into database before setting a user as the owner

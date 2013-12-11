@@ -19,11 +19,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import com.coolstorybros.the_weekly_race.data.DatabaseManager;
 import com.coolstorybros.the_weekly_race.data.Race;
+import com.coolstorybros.the_weekly_race.data.User;
 
 public class ManageRaceActivity extends Activity {
 
-    // for the prototype, just have a static Race variable that the user "creates"
-    private static Race mRace = null;
+    private Race mRace = null;
 	final Context context = this;
 	
 	ScrollView mCreateRace;
@@ -39,6 +39,10 @@ public class ManageRaceActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_race);
+    }
+
+    @Override
+    protected void onResume() {
 
         mCreateRace = (ScrollView) findViewById(R.id.createRaces_form_list);
         mEditRace = (ScrollView) findViewById(R.id.editRaces_form_list);
@@ -46,40 +50,46 @@ public class ManageRaceActivity extends Activity {
         mEditRaceButton = (Button) findViewById(R.id.button_edit_race);
         startDate = Calendar.getInstance();
         endDate = Calendar.getInstance();
-        
+
+        User currentUser = WeeklyRaceApplication.getCurrentUser();
+        if (currentUser.getCreatedRaceId() > 0) {
+            DatabaseManager dbManager = new DatabaseManager(this);
+            mRace = dbManager.getRace(currentUser.getCreatedRaceId());
+        }
+
         if(mRace != null)
         {
-		    startDateField = (EditText) findViewById(R.id.EditTextRaceStartDate_e);
-		    endDateField = (EditText) findViewById(R.id.EditTextRaceEndDate_e);
+            startDateField = (EditText) findViewById(R.id.EditTextRaceStartDate_e);
+            endDateField = (EditText) findViewById(R.id.EditTextRaceEndDate_e);
         }
         else
         {
-        	startDateField = (EditText) findViewById(R.id.EditTextRaceStartDate);
-		    endDateField = (EditText) findViewById(R.id.EditTextRaceEndDate);
+            startDateField = (EditText) findViewById(R.id.EditTextRaceStartDate);
+            endDateField = (EditText) findViewById(R.id.EditTextRaceEndDate);
         }
-        
+
         updateViews();
-        
+
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-        	@Override
+            @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
-                    int dayOfMonth) {
-        			if(val==1)
-        			{
-	                 	startDate.set(Calendar.YEAR, year);
-	                    startDate.set(Calendar.MONTH, monthOfYear);
-	                    startDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        			}
-        			else
-        			{
-        				endDate.set(Calendar.YEAR, year);
-	                    endDate.set(Calendar.MONTH, monthOfYear);
-	                    endDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        			}
-                    updateLabel(val);
+                                  int dayOfMonth) {
+                if(val==1)
+                {
+                    startDate.set(Calendar.YEAR, year);
+                    startDate.set(Calendar.MONTH, monthOfYear);
+                    startDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                }
+                else
+                {
+                    endDate.set(Calendar.YEAR, year);
+                    endDate.set(Calendar.MONTH, monthOfYear);
+                    endDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                }
+                updateLabel(val);
             }
         };
-        
+
         startDateField.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -156,19 +166,6 @@ public class ManageRaceActivity extends Activity {
             mEditRace.setVisibility(View.GONE);
         }
     }
-
-    /**
-     * Called when the user creates a new race
-     * @param r The newly created race (as defined by the "Create Race" screen)
-     */
-    public static void setRace(Race r) {
-        mRace = r;
-    }
-    
-    public static Race getRace(){
-    	return mRace;
-    }
-
     
     public void createRaceButtonClicked(View v) {
     	emptyFlag = false;
