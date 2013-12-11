@@ -312,8 +312,7 @@ public class ManageRaceActivity extends Activity {
             // Insert the newly created race into the database - this will set newRace's ID variable
             // order is important here - need the race to be inserted into database before setting a user as the owner
             DatabaseManager dbManager = new DatabaseManager(this);
-            dbManager.insertNewRace(newRace);
-            dbManager.setRaceOwner(newRace.getId(), WeeklyRaceApplication.getCurrentUser());
+            dbManager.updateRace(newRace);
     		
     		updateViews();
     		
