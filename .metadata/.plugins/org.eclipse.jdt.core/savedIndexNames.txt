@@ -1,2 +1,0 @@
-INDEX VERSION 1.126+/Users/bonghyunkim/Desktop/cs160proj/the-weekly-race/.metadata/.plugins/org.eclipse.jdt.core
-3341167762.index
