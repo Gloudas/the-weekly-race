@@ -62,11 +62,13 @@ public class SearchRacesActivity extends Activity {
        ArrayList<Race> races = dbManager.getAllRaces();
        ArrayList<ArrayList<String>> convertedRaces = new ArrayList<ArrayList<String>>();
        for (Race race : races) {
-    	   ArrayList<String> convertedRace = new ArrayList<String>();
-    	   convertedRace.add(race.getTitle());
-    	   convertedRace.add(race.getEndDateString());
-           convertedRace.add(""+race.getId());
-    	   convertedRaces.add(convertedRace);
+           if (searchQuery.isEmpty() || race.getTitle().toLowerCase().contains(searchQuery) || race.getDetails().toLowerCase().contains(searchQuery)) {
+               ArrayList<String> convertedRace = new ArrayList<String>();
+               convertedRace.add(race.getTitle());
+               convertedRace.add(race.getEndDateString());
+               convertedRace.add(""+race.getId());
+               convertedRaces.add(convertedRace);
+           }
        }
        
        mAdapter = new MySimpleArrayAdapter(this, convertedRaces);
