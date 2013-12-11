@@ -316,7 +316,7 @@ public class ManageRaceActivity extends Activity {
     		updateViews();
     		
     		Intent intent = new Intent(this, RaceDetailsActivity.class);
-            intent.putExtra("raceId", newRace.getId());
+            intent.putExtra(RaceDetailsActivity.RACE_ID_EXTRA_KEY, newRace.getId());
     		startActivity(intent);
     	}
     }
