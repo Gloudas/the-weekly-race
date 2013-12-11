@@ -304,10 +304,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertNewRace(newRace1);
         setRaceOwner(newRace1.getId(), newUser2);
         User dbTest1 = getUser(newUser2.getId()); // test that createdRaceId got set
-        Race newRace2 = new Race("Race2", "Race Location 2", "race details 2", startDate, endDate, "race prize 2", 3);
+        Race newRace2 = new Race(
+                "Bongo Burger's Burger Race",
+                "Bongo Burger, 177 Euclid Ave, Berkeley CA",
+                "Everytime you order fries with your meal, earn 1 point in our race! \n Celebrate Bongo Burger's amazing fries with this fun promotion.",
+                startDate,
+                endDate,
+                "5 free hamburgers and 5 free sodas at a time of your choosing.",
+                3);
         insertNewRace(newRace2);
         setRaceOwner(newRace2.getId(), newUser3);
-        Race newRace3 = new Race("Race3", "Race Location 3", "race details 3", startDate, endDate, "race prize 3", 3);
+        Race newRace3 = new Race(
+                "KingPin Donut Challenge",
+                "King Pin Donuts, 255 Durant Ave, Berkeley CA",
+                "For every dozen donut holes you purchase, earn a point in the race. \n Eat as many as possible! We know these holes wont last!",
+                startDate,
+                endDate,
+                "2 dozen free donuts, all of your choosing.",
+                3);
         insertNewRace(newRace3);
         setRaceOwner(newRace3.getId(), newUser4);
 
