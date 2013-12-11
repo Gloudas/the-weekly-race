@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;LoginActivity/res/layout/search_result_text_view.xml&apos; to &apos;search_result_text_row.xml&apos;" description="Rename resource &apos;search_result_text_view.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/search_result_text_view.xml" name="search_result_text_row.xml" stamp="1386745089822" updateReferences="true"/>
+</session>
