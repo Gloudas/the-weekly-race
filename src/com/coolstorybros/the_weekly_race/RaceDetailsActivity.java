@@ -43,6 +43,7 @@ public class RaceDetailsActivity extends Activity {
 
     @Override
     protected void onResume() {
+        super.onResume();
         init();
     }
 
@@ -76,7 +77,7 @@ public class RaceDetailsActivity extends Activity {
 
             mUserScoreLayout = (LinearLayout) findViewById(R.id.linearLayout_user_score);
             mUserScoreLayout.setVisibility(View.VISIBLE);
-            if (!mIsOwner) {
+            if (mIsOwner) {
                 mUserScoreLayout.setVisibility(View.GONE);
             }
 
@@ -144,6 +145,7 @@ public class RaceDetailsActivity extends Activity {
         Toast.makeText(this, "location! latitude: " + mLastKnownLocation.getLatitude() + " longitude: " + mLastKnownLocation.getLongitude(), Toast.LENGTH_LONG).show();
         */
         defaultUpdateUserScore();
+        initUi();
     }
 
     private void defaultUpdateUserScore() {
