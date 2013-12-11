@@ -15,9 +15,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.coolstorybros.the_weekly_race.data.DatabaseManager;
+import com.coolstorybros.the_weekly_race.data.Race;
 
 public class ManageRaceActivity extends Activity {
 
@@ -305,10 +306,17 @@ public class ManageRaceActivity extends Activity {
     		
     		Race newRace = new Race(title, location, details, startDate, endDate, prize, winners);
     		ManageRaceActivity.setRace(newRace);
+
+            // Insert the newly created race into the database - this will set newRace's ID variable
+            // order is important here - need the race to be inserted into database before setting a user as the owner
+            DatabaseManager dbManager = new DatabaseManager(this);
+            dbManager.insertNewRace(newRace);
+            dbManager.setRaceOwner(newRace.getId(), WeeklyRaceApplication.getCurrentUser());
     		
     		updateViews();
     		
     		Intent intent = new Intent(this, RaceDetailsActivity.class);
+            intent.putExtra("raceId", newRace.getId());
     		startActivity(intent);
     	}
     }
