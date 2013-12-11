@@ -111,6 +111,25 @@
 	        android:textColor="@color/black"
 	        android:text="Location Text"
 	        android:textSize="20dp"/>
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="15dp"></LinearLayout>
+	    <TextView
+	        android:id="@+id/winners"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Winners"
+	        android:textStyle="bold"
+	        android:textSize="25dp"/>
+	    	    
+	    <TextView
+	        android:id="@+id/raceWinners"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/black"
+	        android:text="Winners Text"
+	        android:textSize="20dp"/>
 	    
 	</LinearLayout>
    
