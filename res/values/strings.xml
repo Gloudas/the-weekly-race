@@ -46,5 +46,7 @@
     <string name="race_prizes_hint">Enter prizes for winners...</string>
     <string name="race_winners_hint">Enter number of race winners...</string>
 
+    <string name="your_score">Your\nScore:</string>
+
 
 </resources>
