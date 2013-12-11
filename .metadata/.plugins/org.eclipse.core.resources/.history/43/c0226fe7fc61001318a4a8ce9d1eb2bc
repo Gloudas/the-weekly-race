@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.coolstorybros.the_weekly_race"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
+    <application
+            android:name="com.coolstorybros.the_weekly_race.WeeklyRaceApplication"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher">
+
+        <activity android:name="LoginActivity"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".CreateRaceActivity"
+                  android:label="@string/create_race"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity android:name=".CurrentRacesActivity"
+                  android:label="@string/current_races"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity android:name=".EditRaceActivity"
+                  android:label="@string/edit_race"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity android:name=".ManageRaceActivity"
+                  android:label="@string/manage_race"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity android:name=".RaceDetailsActivity"
+                  android:label="@string/race_details"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+        <activity android:name=".SearchRacesActivity"
+                  android:label="@string/search_races"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
+
+    </application>
+</manifest>

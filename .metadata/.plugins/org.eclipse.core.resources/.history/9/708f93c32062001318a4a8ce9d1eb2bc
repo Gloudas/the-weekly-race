@@ -1,0 +1,86 @@
+package com.coolstorybros.the_weekly_race;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+
+import com.coolstorybros.the_weekly_race.data.DatabaseManager;
+import com.coolstorybros.the_weekly_race.data.Race;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+
+public class SearchRacesActivity extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search_races);
+    }
+
+    /**
+     * Pressed when the "Your Current Races" button is clicked
+     * @param v Button that was clicked
+     */
+    public void currentRacesButtonClicked(View v) {
+        Intent intent = new Intent(this, CurrentRacesActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
+    }
+
+    /**
+     * Pressed when the "Search for Races" button is clicked
+     * @param v Button that was clicked
+     */
+    public void searchForRacesButtonClicked(View v) {
+        // Already on the Search Races activity
+    }
+
+    /**
+     * Pressed when the "Create/Manage Races" button is clicked
+     * @param v Button that was clicked
+     */
+    public void createManageRaceButtonClicked(View v) {
+        Intent intent = new Intent(this, ManageRaceActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(intent);
+    }
+    
+    
+    public void searchRaceClicked(View v) {
+       EditText searchEditText   = (EditText)findViewById(R.id.searchQuery);
+       String searchQuery = searchEditText.getText().toString();
+       DatabaseManager dbManager = new DatabaseManager(this);
+       
+       ArrayList<Race> races = dbManager.getAllRaces();
+              
+       String[] raceTitles = new String[races.size()];
+       for (int i = 0; i < races.size(); i++) {
+    	   String title = races.get(i).getTitle();
+    	   raceTitles[i] = title;
+       }
+       
+       
+       SimpleAdapter adapter = new SimpleAdapter(this, 
+    	       	R.layout.search_result_text_view,R.id.search_content, raceTitles);
+    
+       ListView searchResultView = (ListView)findViewById(R.id.searchResult);
+       searchResultView.setAdapter(adapter);
+       
+       InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
+       imm.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
+    }
+    
+    
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Weekly Race</string>
+    <string name="create_race">Create Race</string>
+    <string name="current_races">Current Races</string>
+    <string name="edit_race">Edit Race</string>
+    <string name="manage_race">Manage Race</string>
+    <string name="race_details">Race Details</string>
+    <string name="search_races">Search for Races</string>
+
+    <!-- Login Screen Strings -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me?</string>
+    <string name="login">Login</string>
+
+    <!-- Your Current Races Strings -->
+    <string name="your_current_races">Your Current Races</string>
+    <string name="search_for_races">Search for Races</string>
+    <string name="create_and_manage_race">Create/Manage Race</string>
+    <string name="sort_by">Sort By</string>
+    <string-array name="sort_by_options">
+        <item>Title</item>
+        <item>Start Date</item>
+        <item>End Date</item>
+        <item>Your Score</item>
+    </string-array>
+    <string name="current_races_empty">You are not participating in any races yet!</string>
+
+    <!-- Search Races Strings -->
+    <string name ="search">search</string>
+	<string name ="search_race">Search Race</string>
+    <!-- Create/Manage Races String -->
+    <string name="create_new_race">Create New Race</string>
+    <string name="edit_current_race">Edit Your Weekly Race</string>
+    <string name="pending_updates">Pending Customer Updates:</string>
+    <string name="pending_updates_empty">
+        You are not currently running a race! \n
+        Create a new race to begin receiving updates.</string>
+    <string name="enter_new_race_details">Enter new race details:</string>
+    <string name="race_title_hint">Race title...</string>
+    <string name="race_details_hint">Race details...</string>
+    <string name="selectdate">Select date</string>
+    <string name="race_date_hint">mm/dd/yyyy</string>
+    <string name="race_points_hint">Enter points won per item...</string>
+    <string name="race_prizes_hint">Enter prizes for winners...</string>
+    <string name="race_winners_hint">Enter number of race winners...</string>
+
+
+</resources>
