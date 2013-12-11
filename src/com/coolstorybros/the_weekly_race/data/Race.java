@@ -145,10 +145,10 @@ public class Race {
     }
 
     public String getStartDateString() {
-        return ((Integer)getStartDate().MONTH).toString() + "/" + ((Integer)getStartDate().DAY_OF_MONTH).toString() + "/" + ((Integer)getStartDate().YEAR).toString();
+        return ((getStartDate().get(Calendar.MONTH)+1) + "/" + ((Integer)getStartDate().get(Calendar.DAY_OF_MONTH)).toString() + "/" + ((Integer)getStartDate().get(Calendar.YEAR)).toString());
     }
     public String getEndDateString() {
-        return ((Integer)getEndDate().MONTH).toString() + "/" + ((Integer)getEndDate().DAY_OF_MONTH).toString() + "/" + ((Integer)getEndDate().YEAR).toString();
+        return ((getEndDate().get(Calendar.MONTH)+1) + "/" + ((Integer)getEndDate().get(Calendar.DAY_OF_MONTH)).toString() + "/" + ((Integer)getEndDate().get(Calendar.YEAR)).toString());
     }
 
     /**
