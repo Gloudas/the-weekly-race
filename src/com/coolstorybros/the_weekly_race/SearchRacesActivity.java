@@ -8,10 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 
 import com.coolstorybros.the_weekly_race.data.DatabaseManager;
 import com.coolstorybros.the_weekly_race.data.Race;
@@ -19,6 +16,8 @@ import com.coolstorybros.the_weekly_race.data.Race;
 import java.util.ArrayList;
 
 public class SearchRacesActivity extends Activity {
+
+    MySimpleArrayAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,10 +69,18 @@ public class SearchRacesActivity extends Activity {
     	   convertedRaces.add(convertedRace);
        }
        
-       MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, convertedRaces);
+       mAdapter = new MySimpleArrayAdapter(this, convertedRaces);
        
        ListView searchResultView = (ListView)findViewById(R.id.searchResult);
-       searchResultView.setAdapter(adapter);
+       searchResultView.setAdapter(mAdapter);
+        searchResultView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ArrayList<String> raceViewValues = mAdapter.getItem(position);
+                int raceId = Integer.parseInt(raceViewValues.get(2));
+                raceDetailsClicked(raceId);
+            }
+        });
        
        InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
        imm.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
@@ -108,14 +115,6 @@ public class SearchRacesActivity extends Activity {
             textView1.setText(content.get(0));
             TextView textView2 = (TextView) rowView.findViewById(R.id.search_content_end_date);
             textView2.setText("Ends " + content.get(1));
-
-            rowView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    int raceId = Integer.parseInt(content.get(2));
-                    raceDetailsClicked(raceId);
-                }
-            });
 
             return rowView;
         }
