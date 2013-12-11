@@ -28,12 +28,14 @@ public class CurrentRacesActivity extends Activity implements AdapterView.OnItem
         mCurrentRacesList.setEmptyView(mCurrentRacesEmptyText);
         // TODO - create an adapter that populates this list with appropriate views for each current race
 
+        /*
         // Setup the "Sort By" spinner button
         mSortBySpinner = (Spinner) findViewById(R.id.currentRaces_sort_by_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.sort_by_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSortBySpinner.setAdapter(adapter);
+        */
     }
 
     /**

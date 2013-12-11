@@ -43,6 +43,7 @@ public class ManageRaceActivity extends Activity {
 
     @Override
     protected void onResume() {
+        super.onResume();
 
         mCreateRace = (ScrollView) findViewById(R.id.createRaces_form_list);
         mEditRace = (ScrollView) findViewById(R.id.editRaces_form_list);
@@ -136,10 +137,7 @@ public class ManageRaceActivity extends Activity {
 
             EditText raceTitle = (EditText) findViewById(R.id.EditTextRaceTitle_e);
             raceTitle.setText(mRace.getTitle());
-            
-            TextView remainingTime = (TextView) findViewById(R.id.remainingTime);
-            remainingTime.setText("End date: " + (mRace.getEndDate().get(Calendar.MONTH)+1) + "/" + ((Integer)mRace.getEndDate().get(Calendar.DAY_OF_MONTH)).toString() + "/" + ((Integer)mRace.getEndDate().get(Calendar.YEAR)).toString());
-            
+
             EditText startDate = (EditText) findViewById(R.id.EditTextRaceStartDate_e);
             startDate.setText((mRace.getStartDate().get(Calendar.MONTH)+1) + "/" + ((Integer)mRace.getStartDate().get(Calendar.DAY_OF_MONTH)).toString() + "/" + ((Integer)mRace.getStartDate().get(Calendar.YEAR)).toString());
             
@@ -230,11 +228,12 @@ public class ManageRaceActivity extends Activity {
     	} else {
     		
     		Race newRace = new Race(title, location, details, startDate, endDate, prize, winners);
-    		ManageRaceActivity.setRace(newRace);
+    		mRace = newRace;
     		
     		updateViews();
     		
     		Intent intent = new Intent(this, RaceDetailsActivity.class);
+            intent.putExtra(RaceDetailsActivity.RACE_ID_EXTRA_KEY, newRace.getId());
     		startActivity(intent);
     	}
     }
@@ -302,7 +301,7 @@ public class ManageRaceActivity extends Activity {
     	} else {
     		
     		Race newRace = new Race(title, location, details, startDate, endDate, prize, winners);
-    		ManageRaceActivity.setRace(newRace);
+    		mRace = newRace;
 
             // Insert the newly created race into the database - this will set newRace's ID variable
             // order is important here - need the race to be inserted into database before setting a user as the owner

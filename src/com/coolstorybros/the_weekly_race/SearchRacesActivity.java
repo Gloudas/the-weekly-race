@@ -66,6 +66,7 @@ public class SearchRacesActivity extends Activity {
     	   ArrayList<String> convertedRace = new ArrayList<String>();
     	   convertedRace.add(race.getTitle());
     	   convertedRace.add(race.getEndDateString());
+           convertedRace.add(""+race.getId());
     	   convertedRaces.add(convertedRace);
        }
        
@@ -77,32 +78,62 @@ public class SearchRacesActivity extends Activity {
        InputMethodManager imm = (InputMethodManager)getSystemService(this.INPUT_METHOD_SERVICE);
        imm.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
     }
+
+    public void raceDetailsClicked(int raceId) {
+        Intent intent = new Intent(this, RaceDetailsActivity.class);
+        intent.putExtra(RaceDetailsActivity.RACE_ID_EXTRA_KEY, raceId);
+        startActivity(intent);
+    }
     
     public class MySimpleArrayAdapter extends ArrayAdapter<ArrayList<String>> {
-    	  private final Context context;
-    	  private final ArrayList<ArrayList<String>> values;
+        private final Context context;
+        private final ArrayList<ArrayList<String>> values;
+        ArrayList<String> content;
 
-    	  public MySimpleArrayAdapter(Context context, ArrayList<ArrayList<String>> values) {
-    	    super(context, R.layout.search_result_text_row, values);
-    	    this.context = context;
-    	    this.values = values;
-    	  }
+        public MySimpleArrayAdapter(Context context, ArrayList<ArrayList<String>> values) {
+            super(context, R.layout.search_result_text_row, values);
+            this.context = context;
+            this.values = values;
+        }
 
-    	  @Override
-    	  public View getView(int position, View convertView, ViewGroup parent) {
-    	    LayoutInflater inflater = (LayoutInflater) context
-    	        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    	    View rowView = inflater.inflate(R.layout.search_result_text_row, parent, false);
-    	    
-    	    ArrayList<String> content = values.get(position);
-    	    
-    	    TextView textView1 = (TextView) rowView.findViewById(R.id.search_content_title);
-    	    textView1.setText(content.get(0));
-    	    TextView textView2 = (TextView) rowView.findViewById(R.id.search_content_end_date);
-    	    textView2.setText("Ends " + content.get(1));
-    	    
-    	    return rowView;
-    	  }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View rowView = inflater.inflate(R.layout.search_result_text_row, parent, false);
+
+            content = values.get(position);
+
+            TextView textView1 = (TextView) rowView.findViewById(R.id.search_content_title);
+            textView1.setText(content.get(0));
+            TextView textView2 = (TextView) rowView.findViewById(R.id.search_content_end_date);
+            textView2.setText("Ends " + content.get(1));
+
+            rowView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    int raceId = Integer.parseInt(content.get(2));
+                    raceDetailsClicked(raceId);
+                }
+            });
+
+            return rowView;
+        }
+
+        @Override
+        public int getCount() {
+            return values.size();
+        }
+
+        @Override
+        public ArrayList<String> getItem(int position) {
+            return values.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
     } 
 
 }
