@@ -2,6 +2,7 @@ package com.coolstorybros.the_weekly_race;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.Activity;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.coolstorybros.the_weekly_race.data.DatabaseManager;
 import com.coolstorybros.the_weekly_race.data.Race;
 import com.coolstorybros.the_weekly_race.data.User;
+import com.coolstorybros.the_weekly_race.data.UserScore;
 
 public class RaceDetailsActivity extends Activity {
 
@@ -24,6 +26,7 @@ public class RaceDetailsActivity extends Activity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
 
     LinearLayout mUserScoreLayout;
+    TextView mTextViewUserScore;
     TextView mRaceTitle;
     TextView mRemainingTime;
     TextView mRaceDetails;
@@ -33,6 +36,8 @@ public class RaceDetailsActivity extends Activity {
 
     Race mRace;
     int mRaceId;
+    UserScore mUserScore;
+    ArrayList<UserScore> mUserScores;
     boolean mIsOwner = false;
 
     @Override
@@ -68,6 +73,12 @@ public class RaceDetailsActivity extends Activity {
         } else {
             mIsOwner = false;
         }
+        mUserScores = dbManager.getUserScoresByRace(mRaceId);
+        for (UserScore score : mUserScores) {
+            if (score.getUserId() == currentUser.getId()) {
+                mUserScore = score;
+            }
+        }
 
         initUi();
     }
@@ -76,9 +87,15 @@ public class RaceDetailsActivity extends Activity {
         if (mRace != null) {
 
             mUserScoreLayout = (LinearLayout) findViewById(R.id.linearLayout_user_score);
+            mTextViewUserScore = (TextView) findViewById(R.id.textView_user_score);
             mUserScoreLayout.setVisibility(View.VISIBLE);
             if (mIsOwner) {
                 mUserScoreLayout.setVisibility(View.GONE);
+            }
+            if (mUserScore != null) {
+                mTextViewUserScore.setText(""+mUserScore.getScore());
+            } else {
+                mTextViewUserScore.setText(""+0);
             }
 
             mRaceTitle = (TextView) findViewById(R.id.raceTitle);
@@ -145,7 +162,7 @@ public class RaceDetailsActivity extends Activity {
         Toast.makeText(this, "location! latitude: " + mLastKnownLocation.getLatitude() + " longitude: " + mLastKnownLocation.getLongitude(), Toast.LENGTH_LONG).show();
         */
         defaultUpdateUserScore();
-        initUi();
+        init();
     }
 
     private void defaultUpdateUserScore() {

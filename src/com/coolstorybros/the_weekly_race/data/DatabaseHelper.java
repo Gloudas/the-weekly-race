@@ -293,7 +293,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         startDate.set(2013, 12, 12);
         Calendar endDate = Calendar.getInstance();
         endDate.set(2013, 12, 12);
-        Race newRace1 = new Race("Race1", "Race Location 1", "race details 1", startDate, endDate, "race prize 1", 3);
+        Race newRace1 = new Race(
+                "Tangerine Race",
+                "Whole Foods Market, 2778 Telegraph Avenue, Berkeley CA",
+                "Celebrate vitamin C! For every bag of tangerines you buy in our store, earn a point towards the competition.",
+                startDate,
+                endDate,
+                "A $50 gift certificate to our store!",
+                3);
         insertNewRace(newRace1);
         setRaceOwner(newRace1.getId(), newUser2);
         User dbTest1 = getUser(newUser2.getId()); // test that createdRaceId got set
