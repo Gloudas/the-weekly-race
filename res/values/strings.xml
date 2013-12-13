@@ -49,6 +49,12 @@
     <string name="race_winners_hint">Enter number of race winners...</string>
 
     <string name="your_score">Your\nScore:</string>
+    
+    <string-array name="sort_value_array">
+        <item>Title</item>
+        <item>Start Date</item>
+        <item>End Date</item>
+    </string-array>
 
 
 </resources>

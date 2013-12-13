@@ -166,4 +166,27 @@ public class Race {
         values.put(DatabaseHelper.RacesEntry.COLUMN_NAME_NUM_WINNERS, getNumWinners());
         return values;
     }
+    
+    public boolean lessThen(Race race, String criteria) {
+    	if (criteria.equals("Title")) {
+    		if (this.getTitle().compareTo(race.getTitle()) <= 0) {
+    			return true;
+    		} else {
+    			return false;
+    		}
+    	} else if (criteria.equals("Start Date")) {
+    		if (this.getStartDate().compareTo(race.getStartDate()) <= 0) {
+    			return true;
+    		} else {
+    			return false;
+    		}
+    	} else if (criteria.equals("End Date")) {
+    		if (this.getEndDate().compareTo(race.getEndDate()) <= 0) {
+    			return true;
+    		} else {
+    			return false;
+    		}
+    	}
+    	return false;
+    }
 }
