@@ -1,26 +1,18 @@
 package com.coolstorybros.the_weekly_race.data;
 
-import java.util.*;
-
 import java.util.ArrayList;
-import java.util.List;
-import android.app.ListActivity;
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.provider.MediaStore;
-import android.view.KeyEvent;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.coolstorybros.the_weekly_race.R;
 
+/**
+ * This class was actually used in the end - we used a linear layout instead
+ */
 public class UserScoreAdapter extends ArrayAdapter {
     private final Activity activity;
     private final ArrayList<UserScore> userscores;

@@ -33,7 +33,6 @@ public class RaceDetailsActivity extends Activity {
     TextView mRaceWinners;
     TextView mRacePrize;
     TextView mLocation;
-    ListView mLeaderboard;
     LinearLayout mLinearLayoutLeaderboard;
 
     Race mRace;
@@ -119,12 +118,7 @@ public class RaceDetailsActivity extends Activity {
             mLocation = (TextView) findViewById(R.id.location);
             mLocation.setText(mRace.getLocation());
 
-            /* populate the leaderboard
-            mLeaderboard = (ListView) findViewById(R.id.listView_leaderboard);
-            mLeaderboardAdapter = new UserScoreAdapter(this, mUserScores);
-            mLeaderboard.setAdapter(mLeaderboardAdapter);  */
-
-            // todo - sort mUserScores first
+            // Populate the leaderboard
             mLinearLayoutLeaderboard = (LinearLayout) findViewById(R.id.linearLayout_leaderboard);
             LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             for (UserScore score : mUserScores) {
