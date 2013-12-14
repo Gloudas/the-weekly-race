@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.coolstorybros.the_weekly_race.data.DatabaseManager;
-import com.coolstorybros.the_weekly_race.data.Race;
-import com.coolstorybros.the_weekly_race.data.User;
-import com.coolstorybros.the_weekly_race.data.UserScore;
+import com.coolstorybros.the_weekly_race.data.*;
 
 public class RaceDetailsActivity extends Activity {
 
@@ -33,12 +33,15 @@ public class RaceDetailsActivity extends Activity {
     TextView mRaceWinners;
     TextView mRacePrize;
     TextView mLocation;
+    ListView mLeaderboard;
+    LinearLayout mLinearLayoutLeaderboard;
 
     Race mRace;
     int mRaceId;
     UserScore mUserScore;
     ArrayList<UserScore> mUserScores;
     boolean mIsOwner = false;
+    UserScoreAdapter mLeaderboardAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,7 +119,22 @@ public class RaceDetailsActivity extends Activity {
             mLocation = (TextView) findViewById(R.id.location);
             mLocation.setText(mRace.getLocation());
 
-            // TODO - populate the leaderboard
+            /* populate the leaderboard
+            mLeaderboard = (ListView) findViewById(R.id.listView_leaderboard);
+            mLeaderboardAdapter = new UserScoreAdapter(this, mUserScores);
+            mLeaderboard.setAdapter(mLeaderboardAdapter);  */
+
+            // todo - sort mUserScores first
+            mLinearLayoutLeaderboard = (LinearLayout) findViewById(R.id.linearLayout_leaderboard);
+            LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            for (UserScore score : mUserScores) {
+                View rowView = inflater.inflate(R.layout.user_score_list_item,null);
+                TextView username = (TextView) rowView.findViewById(R.id.user_name);
+                username.setText(score.getUsername());
+                TextView userScore = (TextView) rowView.findViewById(R.id.user_score);
+                userScore.setText("Score: " + score.getScore());
+                mLinearLayoutLeaderboard.addView(rowView);
+            }
         }
     }
 
@@ -125,43 +143,15 @@ public class RaceDetailsActivity extends Activity {
     }
 
     private void takePicture() {
-
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        /*
-        File f = null;
-        try {
-            f = setUpPhotoFile();
-            mCurrentPhotoPath = f.getAbsolutePath();
-            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-        } catch (IOException e) {
-            e.printStackTrace();
-            f = null;
-            mCurrentPhotoPath = null;
-        }
-        */
         startActivityForResult(takePictureIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        /*
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                // Image captured and saved to fileUri specified in the Intent
-                savePhotoToStorage();
-                savePhotoLocation();
-                loadNearbyPhoto();
-            } else if (resultCode == RESULT_CANCELED) {
-                // User cancelled the image capture
-                throw new RuntimeException("HEY DOUG IT MESSED UP");
-            } else {
-                // Image capture failed, advise user
-                throw new RuntimeException("HEY DOUG IT MESSED UP");
-            }
-        }
-        Toast.makeText(this, "location! latitude: " + mLastKnownLocation.getLatitude() + " longitude: " + mLastKnownLocation.getLongitude(), Toast.LENGTH_LONG).show();
-        */
+
         defaultUpdateUserScore();
+        mLeaderboardAdapter.notifyDataSetChanged();
         init();
     }
 
@@ -173,16 +163,5 @@ public class RaceDetailsActivity extends Activity {
             dbManager.updateUserScore(mRace.getId(), currentUser.getId(), currentUser.getUsername(), 1);
         }
     }
-
-    /*
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) 
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            finish();
-        }
-        return false;
-    } */
 
 }
