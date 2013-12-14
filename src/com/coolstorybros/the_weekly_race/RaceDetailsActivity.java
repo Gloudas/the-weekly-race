@@ -120,6 +120,7 @@ public class RaceDetailsActivity extends Activity {
 
             // Populate the leaderboard
             mLinearLayoutLeaderboard = (LinearLayout) findViewById(R.id.linearLayout_leaderboard);
+            mLinearLayoutLeaderboard.removeAllViews();
             LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             for (UserScore score : mUserScores) {
                 View rowView = inflater.inflate(R.layout.user_score_list_item,null);
@@ -145,7 +146,6 @@ public class RaceDetailsActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         defaultUpdateUserScore();
-        mLeaderboardAdapter.notifyDataSetChanged();
         init();
     }
 
